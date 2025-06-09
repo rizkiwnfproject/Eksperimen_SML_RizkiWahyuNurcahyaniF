@@ -6,7 +6,7 @@ on:
       - 'modelling.py'
       - 'MLProject'
       - 'conda.yaml'
-      - 'workflow-CI/.github/workflows/train_model.yml'
+      - '.github/workflows/train_model.yml'
 
 jobs:
   train:
@@ -27,4 +27,4 @@ jobs:
 
       - name: Run MLflow Project
         run: |
-          mlflow run . --entry-point main
+          mlflow run workflow-CI --entry-point main
