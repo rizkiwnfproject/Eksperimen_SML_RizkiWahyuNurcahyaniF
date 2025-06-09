@@ -6,7 +6,7 @@ on:
       - 'modelling.py'
       - 'MLProject'
       - 'conda.yaml'
-      - '.github/workflows/train_model.yml'
+      - 'workflow-CI/.github/workflows/train_model.yml'
 
 jobs:
   train:
