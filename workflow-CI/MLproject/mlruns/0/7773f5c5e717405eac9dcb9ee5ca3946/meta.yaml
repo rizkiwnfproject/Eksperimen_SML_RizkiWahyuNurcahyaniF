@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/workflow-CI/MLproject/mlruns/0/7773f5c5e717405eac9dcb9ee5ca3946/artifacts
+end_time: 1749483285630
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7773f5c5e717405eac9dcb9ee5ca3946
+run_name: gifted-sloth-817
+run_uuid: 7773f5c5e717405eac9dcb9ee5ca3946
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749483275541
+status: 3
+tags: []
+user_id: HP
