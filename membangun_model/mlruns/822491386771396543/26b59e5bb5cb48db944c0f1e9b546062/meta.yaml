@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/membangun_model/mlruns/822491386771396543/26b59e5bb5cb48db944c0f1e9b546062/artifacts
+end_time: 1749475588165
+entry_point_name: ''
+experiment_id: '822491386771396543'
+lifecycle_stage: active
+run_id: 26b59e5bb5cb48db944c0f1e9b546062
+run_name: kindly-zebra-420
+run_uuid: 26b59e5bb5cb48db944c0f1e9b546062
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749475523786
+status: 3
+tags: []
+user_id: HP

@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/membangun_model/mlruns/874059979284510427/b18799353c484e92a95f361ae5731c4c/artifacts
+deleted_time: 1749474785395
+end_time: 1749474484213
+entry_point_name: ''
+experiment_id: '874059979284510427'
+lifecycle_stage: deleted
+run_id: b18799353c484e92a95f361ae5731c4c
+run_name: KNN
+run_uuid: b18799353c484e92a95f361ae5731c4c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749474475089
+status: 3
+tags: []
+user_id: HP

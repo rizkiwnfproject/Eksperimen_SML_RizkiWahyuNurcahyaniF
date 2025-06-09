@@ -1,0 +1,16 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/membangun_model/mlruns/874059979284510427/879379e8445f41789e1703b69ded27ca/artifacts
+deleted_time: 1749474785395
+end_time: 1749474475071
+entry_point_name: ''
+experiment_id: '874059979284510427'
+lifecycle_stage: deleted
+run_id: 879379e8445f41789e1703b69ded27ca
+run_name: RandomForest
+run_uuid: 879379e8445f41789e1703b69ded27ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749474465291
+status: 3
+tags: []
+user_id: HP

@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/membangun_model/mlruns/106748112678072934/ad1c5c1912274cd8b03cdcd892409c53/artifacts
+end_time: 1749474786489
+entry_point_name: ''
+experiment_id: '106748112678072934'
+lifecycle_stage: active
+run_id: ad1c5c1912274cd8b03cdcd892409c53
+run_name: rogue-stoat-460
+run_uuid: ad1c5c1912274cd8b03cdcd892409c53
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749474770686
+status: 3
+tags: []
+user_id: HP
