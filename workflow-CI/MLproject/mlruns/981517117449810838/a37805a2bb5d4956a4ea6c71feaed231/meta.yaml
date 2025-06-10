@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/workflow-CI/MLproject/mlruns/981517117449810838/a37805a2bb5d4956a4ea6c71feaed231/artifacts
+end_time: 1749521838126
+entry_point_name: ''
+experiment_id: '981517117449810838'
+lifecycle_stage: active
+run_id: a37805a2bb5d4956a4ea6c71feaed231
+run_name: gregarious-ray-187
+run_uuid: a37805a2bb5d4956a4ea6c71feaed231
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749521823446
+status: 3
+tags: []
+user_id: HP
