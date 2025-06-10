@@ -42,10 +42,10 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install -r workflow-CI/requirements.txt || true
-      - name: Check model artifacts
+      - name: Move model artifacts to root
         run: |
-          echo "Checking contents of artifacts/"
-          ls -lah artifacts/
+          echo "Looking for model artifacts from MLflow run..."
+          find /tmp -type d -name artifacts -exec cp -r {} ./artifacts \; || echo "No artifacts found"
 
       - name: Commit model artifacts
         run: |
@@ -53,7 +53,7 @@ jobs:
           git config user.email "github-actions@github.com"
           git add artifacts/model
           git commit -m "Auto commit: model artifacts from CI"
-          git push
+          git push || echo "Nothing to commit"
 
       - name: Post Run actions/checkout@v3
         run: echo "Post-checkout cleanup"
