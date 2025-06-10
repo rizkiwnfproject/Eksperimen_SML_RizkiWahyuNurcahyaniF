@@ -18,29 +18,28 @@ def main(data_path):
 
     mlflow.set_experiment("CI Heart Disease")
 
-    # ✅ Start MLflow run di sini
-    with mlflow.start_run():  
-        model = RandomForestClassifier(n_estimators=100)
-        model.fit(X_train, y_train)
+    # ❌ JANGAN pakai `with mlflow.start_run():`
+    model = RandomForestClassifier(n_estimators=100)
+    model.fit(X_train, y_train)
 
-        y_pred = model.predict(X_test)
-        acc = accuracy_score(y_test, y_pred)
-        precision = precision_score(y_test, y_pred)
-        recall = recall_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
+    y_pred = model.predict(X_test)
+    acc = accuracy_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
+    f1 = f1_score(y_test, y_pred)
 
-        mlflow.log_param("n_estimators", 100)
-        mlflow.log_param("max_depth", 5)
-        mlflow.log_metric("accuracy", acc)
-        mlflow.log_metric("precision", precision)
-        mlflow.log_metric("recall", recall)
-        mlflow.log_metric("f1_score", f1)
-        mlflow.sklearn.log_model(model, "model")
+    mlflow.log_param("n_estimators", 100)
+    mlflow.log_param("max_depth", 5)
+    mlflow.log_metric("accuracy", acc)
+    mlflow.log_metric("precision", precision)
+    mlflow.log_metric("recall", recall)
+    mlflow.log_metric("f1_score", f1)
+    mlflow.sklearn.log_model(model, "model")
 
-        print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
+    print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
 
-        os.makedirs("artifacts", exist_ok=True)
-        mlflow.sklearn.save_model(model, "artifacts/model")
+    os.makedirs("artifacts", exist_ok=True)
+    mlflow.sklearn.save_model(model, "artifacts/model")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
