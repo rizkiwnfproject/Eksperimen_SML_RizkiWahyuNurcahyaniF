@@ -37,7 +37,7 @@ jobs:
 
       - name: Run MLflow Project
         run: |
-          mlflow run workflow-CI/MLproject --entry-point main --env-manager=local
+          mlflow run workflow-CI/MLproject --entry-point main --env-manager=local --experiment-name "CI Heart Disease"
 
       - name: Install Python dependencies
         run: |
