@@ -7,33 +7,23 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import os
 import argparse
 
-def main(data_path):
-    # Load data
+def train_and_log(data_path):
     df = pd.read_csv(data_path)
     X = df.drop("HeartDisease", axis=1)
     y = df["HeartDisease"]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Set experiment name
-    mlflow.set_experiment("CI Heart Disease")
-
-    # Start run ONLY if not already started (for compatibility with `mlflow run`)
-    if mlflow.active_run() is None:
-        mlflow.start_run()
-
-    # Train model
     model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
     model.fit(X_train, y_train)
 
-    # Predict and evaluate
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
     f1 = f1_score(y_test, y_pred)
 
-    # Logging to MLflow
+    # Logging
     mlflow.log_param("n_estimators", 100)
     mlflow.log_param("max_depth", 5)
     mlflow.log_metric("accuracy", acc)
@@ -47,6 +37,16 @@ def main(data_path):
     # Save model locally
     os.makedirs("artifacts", exist_ok=True)
     mlflow.sklearn.save_model(model, "artifacts/model")
+
+def main(data_path):
+    mlflow.set_experiment("CI Heart Disease")
+
+    # Ini akan work baik di `mlflow run` maupun `python modelling.py`
+    if mlflow.active_run() is None:
+        with mlflow.start_run():
+            train_and_log(data_path)
+    else:
+        train_and_log(data_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
