@@ -28,3 +28,11 @@ jobs:
       - name: Run MLflow Project
         run: |
           mlflow run workflow-CI/MLproject --entry-point main --env-manager=local
+          
+      - name: Commit model artifacts
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add workflow-CI/artifacts/model
+          git commit -m "Auto commit: model artifacts from CI"
+          git push
