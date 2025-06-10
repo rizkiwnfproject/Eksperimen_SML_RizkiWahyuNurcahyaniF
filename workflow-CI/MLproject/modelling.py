@@ -43,8 +43,8 @@ def main(data_path):
 
     # Ini akan work baik di `mlflow run` maupun `python modelling.py`
     if mlflow.active_run() is None:
-        with mlflow.start_run():
-            train_and_log(data_path)
+        with mlflow.start_run(nested=True):
+            train_and_log(args.data_path)
     else:
         train_and_log(data_path)
 
