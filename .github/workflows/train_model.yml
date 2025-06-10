@@ -1,4 +1,4 @@
-name: Train Model CI
+name: Train Modelling Workflow CI
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Run action/checkout@v3
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -21,14 +21,28 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install MLflow & deps
+      - name: Check Env
+        run: |
+          echo "CI=$CI"
+          echo "ENV=$ENV"
+
+      - name: Install dependencies
         run: |
           pip install mlflow pandas scikit-learn
+
+      - name: Set MLflow Tracking URI
+        run: |
+          export MLFLOW_TRACKING_URI="file:./mlruns"
+          echo "MLflow Tracking URI set to $MLFLOW_TRACKING_URI"
 
       - name: Run MLflow Project
         run: |
           mlflow run workflow-CI/MLproject --entry-point main --env-manager=local
-          
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r workflow-CI/requirements.txt || true
+
       - name: Commit model artifacts
         run: |
           git config user.name "github-actions"
@@ -36,3 +50,6 @@ jobs:
           git add workflow-CI/artifacts/model
           git commit -m "Auto commit: model artifacts from CI"
           git push
+
+      - name: Post Run actions/checkout@v3
+        run: echo "Post-checkout cleanup"

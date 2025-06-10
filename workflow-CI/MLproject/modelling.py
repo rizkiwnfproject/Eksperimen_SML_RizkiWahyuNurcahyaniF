@@ -18,7 +18,7 @@ def main(data_path):
 
     mlflow.set_experiment("CI Heart Disease")
 
-    with mlflow.start_run():
+    with mlflow.start_run(nested=True):
         model = RandomForestClassifier(n_estimators=100)
         model.fit(X_train, y_train)
 
@@ -38,7 +38,6 @@ def main(data_path):
 
         print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
 
-        # Simpan artefak model secara manual
         os.makedirs("artifacts", exist_ok=True)
         mlflow.sklearn.save_model(model, "artifacts/model")
 
