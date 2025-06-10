@@ -34,10 +34,6 @@ def train_and_log(data_path):
 
     print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
 
-    # Save model locally
-    os.makedirs("artifacts", exist_ok=True)
-    mlflow.sklearn.save_model(model, "artifacts/model")
-
 def main(data_path):
     mlflow.set_experiment("CI Heart Disease")
 
