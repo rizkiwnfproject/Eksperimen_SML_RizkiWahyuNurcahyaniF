@@ -1,3 +1,4 @@
+artifact_path: model
 flavors:
   python_function:
     env:
@@ -6,14 +7,15 @@ flavors:
     loader_module: mlflow.sklearn
     model_path: model.pkl
     predict_fn: predict
-    python_version: 3.9.22
+    python_version: 3.12.9
   sklearn:
     code: null
     pickled_model: model.pkl
     serialization_format: cloudpickle
     sklearn_version: 1.6.1
 mlflow_version: 2.22.1
-model_size_bytes: 456911
-model_uuid: 0277d6b4cc4a42829b3d9be5de9dabab
+model_size_bytes: 456876
+model_uuid: 83a5e26093824b63a40102ef14875d2f
 prompts: null
-utc_time_created: '2025-06-10 03:01:22.787062'
+run_id: 694c302b26494dc380331e65fc4a713e
+utc_time_created: '2025-06-10 15:23:22.660423'

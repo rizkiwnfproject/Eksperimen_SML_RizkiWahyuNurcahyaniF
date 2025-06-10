@@ -1,17 +1,18 @@
+import json
 import mlflow
 import mlflow.sklearn
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import (
-    accuracy_score, precision_score, recall_score, f1_score
-)
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 df = pd.read_csv("heart_preprocessed.csv")
 X = df.drop("HeartDisease", axis=1)
 y = df["HeartDisease"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
 # mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 mlflow.set_experiment("Heart Disease Modelling")
@@ -34,4 +35,16 @@ with mlflow.start_run():
     mlflow.log_metric("f1_score", f1)
     mlflow.sklearn.log_model(model, "model")
 
-    print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
+    # Simpan ke file JSON
+    metrics_dict = {
+        "accuracy": round(acc, 4),
+        "precision": round(precision, 4),
+        "recall": round(recall, 4),
+        "f1_score": round(f1, 4),
+    }
+
+    with open("model_metrics.json", "w") as f:
+        json.dump(metrics_dict, f)
+    print(
+        f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}"
+    )

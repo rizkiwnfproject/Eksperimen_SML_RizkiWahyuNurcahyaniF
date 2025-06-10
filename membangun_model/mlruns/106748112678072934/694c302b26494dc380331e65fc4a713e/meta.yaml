@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/membangun_model/mlruns/106748112678072934/694c302b26494dc380331e65fc4a713e/artifacts
+end_time: 1749569011591
+entry_point_name: ''
+experiment_id: '106748112678072934'
+lifecycle_stage: active
+run_id: 694c302b26494dc380331e65fc4a713e
+run_name: trusting-stag-875
+run_uuid: 694c302b26494dc380331e65fc4a713e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749569002409
+status: 3
+tags: []
+user_id: HP

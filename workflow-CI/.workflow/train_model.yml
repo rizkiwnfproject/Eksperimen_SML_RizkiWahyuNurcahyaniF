@@ -1,0 +1,55 @@
+name: Train Modelling Workflow CI
+
+on:
+  push:
+    paths:
+      - 'modelling.py'
+      - 'MLProject'
+      - 'conda.yaml'
+      - '.github/workflows/train_model.yml'
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run action repositoryy
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Check Env
+        run: |
+          echo "CI=$CI"
+          echo "ENV=$ENV"
+
+      - name: Install dependencies
+        run: |
+          pip install mlflow pandas scikit-learn
+
+      - name: Set MLflow Tracking URI
+        run: |
+          export MLFLOW_TRACKING_URI="file:./mlruns"
+          echo "MLflow Tracking URI set to $MLFLOW_TRACKING_URI"
+
+      - name: Run MLflow Project
+        run: |
+          mlflow run workflow-CI/MLproject --entry-point main --env-manager=local --experiment-name "CI Heart Disease"
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r workflow-CI/requirements.txt || true
+
+      - name: Commit model artifacts
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add workflow-CI/MLproject/artifacts/model
+          git commit -m "Auto commit: model artifacts from CI"
+          git push
+
+      - name: Post Run actions/checkout@v3
+        run: echo "Post-checkout cleanup"
