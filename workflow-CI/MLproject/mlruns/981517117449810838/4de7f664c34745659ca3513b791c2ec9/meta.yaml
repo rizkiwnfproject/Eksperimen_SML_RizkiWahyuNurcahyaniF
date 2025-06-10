@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/workflow-CI/MLproject/mlruns/981517117449810838/4de7f664c34745659ca3513b791c2ec9/artifacts
+end_time: 1749522021924
+entry_point_name: ''
+experiment_id: '981517117449810838'
+lifecycle_stage: active
+run_id: 4de7f664c34745659ca3513b791c2ec9
+run_name: serious-bird-266
+run_uuid: 4de7f664c34745659ca3513b791c2ec9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749522007481
+status: 3
+tags: []
+user_id: HP
