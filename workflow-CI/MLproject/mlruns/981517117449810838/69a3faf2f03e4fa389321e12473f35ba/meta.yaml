@@ -1,5 +1,5 @@
 artifact_uri: file:///E:/1.%20KIKO/Bootcamp/Laskar%20AI/Sistem%20Machine%20Learning/workflow-CI/MLproject/mlruns/981517117449810838/69a3faf2f03e4fa389321e12473f35ba/artifacts
-end_time: null
+end_time: 1749517197196
 entry_point_name: ''
 experiment_id: '981517117449810838'
 lifecycle_stage: active
@@ -10,6 +10,6 @@ source_name: ''
 source_type: 4
 source_version: ''
 start_time: 1749517171294
-status: 1
+status: 3
 tags: []
 user_id: HP
