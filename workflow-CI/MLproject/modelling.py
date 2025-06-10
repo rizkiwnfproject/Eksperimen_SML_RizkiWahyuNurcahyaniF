@@ -31,8 +31,8 @@ def train_and_log(data_path):
     mlflow.log_metric("recall", recall)
     mlflow.log_metric("f1_score", f1)
     
-    os.makedirs("workflow-CI/MLproject/artifacts", exist_ok=True)
-    mlflow.sklearn.save_model(model, "workflow-CI/MLproject/artifacts/model")
+    os.makedirs("artifacts", exist_ok=True)
+    mlflow.sklearn.save_model(model, "artifacts/model") 
     mlflow.sklearn.log_model(model, "model")
 
     print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")    
