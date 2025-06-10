@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run action repository
+      - name: Run action repositoryy
         uses: actions/checkout@v3
 
       - name: Setup Python

@@ -41,7 +41,6 @@ def train_and_log(data_path):
 def main(data_path):
     mlflow.set_experiment("CI Heart Disease")
 
-    # Ini akan work baik di `mlflow run` maupun `python modelling.py`
     if mlflow.active_run() is None:
         with mlflow.start_run(nested=True):
             train_and_log(args.data_path)
