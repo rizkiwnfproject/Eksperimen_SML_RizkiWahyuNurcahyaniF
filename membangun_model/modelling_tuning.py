@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import roc_auc_score, log_loss
 
 df = pd.read_csv("heart_preprocessed.csv")
 X = df.drop("HeartDisease", axis=1)
@@ -31,11 +32,15 @@ with mlflow.start_run():
 
     best_model = grid.best_estimator_
     y_pred = best_model.predict(X_test)
+    y_proba = best_model.predict_proba(X_test)[:, 1]
+
     
     acc = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
     f1 = f1_score(y_test, y_pred)
+    roc_auc = roc_auc_score(y_test, y_proba)
+    logloss = log_loss(y_test, best_model.predict_proba(X_test))
 
     best_params = grid.best_params_
     mlflow.log_params(best_params)
@@ -43,7 +48,9 @@ with mlflow.start_run():
     mlflow.log_metric("precision", precision)
     mlflow.log_metric("recall", recall)
     mlflow.log_metric("f1_score", f1)
+    mlflow.log_metric("roc_auc", roc_auc)
+    mlflow.log_metric("log_loss", logloss)
     mlflow.sklearn.log_model(best_model, "model")
 
     print("Best Parameters:", best_params)
-    print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f}")
+    print(f"Accuracy: {acc:.4f} | Precision: {precision:.4f} | Recall: {recall:.4f} | F1: {f1:.4f} | roc_auc: {roc_auc:.4f} | log_loss: {logloss:.4f}")

@@ -17,6 +17,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 # mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 mlflow.set_experiment("Heart Disease Modelling")
 
+mlflow.sklearn.autolog()
+
 with mlflow.start_run():
     model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
     model.fit(X_train, y_train)
@@ -35,7 +37,6 @@ with mlflow.start_run():
     mlflow.log_metric("f1_score", f1)
     mlflow.sklearn.log_model(model, "model")
 
-    # Simpan ke file JSON
     metrics_dict = {
         "accuracy": round(acc, 4),
         "precision": round(precision, 4),

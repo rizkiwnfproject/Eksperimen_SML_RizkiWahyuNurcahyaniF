@@ -1,0 +1,6 @@
+Workflow-CI:
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/tree/main/workflow-CI
+
+Action run train_model.yml : 
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/blob/main/.github/workflows/train_model.yml
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/actions/runs/15549527919/job/43777298712
