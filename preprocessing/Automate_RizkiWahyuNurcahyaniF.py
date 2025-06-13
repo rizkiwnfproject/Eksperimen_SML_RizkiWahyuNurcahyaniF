@@ -18,6 +18,9 @@ def preprocess_data(input_path, output_path):
 
     # menghapus missing value
     df_cleaned = df_processed.dropna()
+    
+    # menghapus data duplikat
+    df_cleaned = df_cleaned.drop_duplicates()
 
     # Menangani nilai 0 pada restingBP dan cholesterol dengan mengganti dengan NAN
     df_cleaned["RestingBP"].replace(0, pd.NA, inplace=True)
