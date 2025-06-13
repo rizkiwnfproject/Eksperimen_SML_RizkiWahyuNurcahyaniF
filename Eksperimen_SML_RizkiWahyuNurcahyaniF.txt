@@ -1,9 +1,9 @@
 Preprocessing : 
 Manual : 
-https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/blob/main/preprocessing/Eksperimen_RizkiWahyuNurcahyaniF.ipynb
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF-2/blob/main/Eksperimen_RizkiWahyuNurcahyaniF.ipynb
 
 Automate : 
-https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/blob/main/preprocessing/Automate_RizkiWahyuNurcahyaniF.py
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF-2/blob/main/Automate_RizkiWahyuNurcahyaniF.py
 
 Action run preprocessing.yml
-https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF/actions/runs/15533088898/job/43726238380
+https://github.com/rizkiwnfproject/Eksperimen_SML_RizkiWahyuNurcahyaniF-2/actions/runs/15627520898/job/44024550298
